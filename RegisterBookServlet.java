@@ -35,6 +35,7 @@ public class RegisterBookServlet extends HttpServlet{
             int inventory = Integer.parseInt(inv);
             if(inventory < 0){
                 res.sendRedirect("failRegister.jsp");
+                return;
             }
             boolean register = sql.registerBook(ISBN, title, publisher, publishDate, field, authors, inventory, borrowedAmount);
             if (register == true){
