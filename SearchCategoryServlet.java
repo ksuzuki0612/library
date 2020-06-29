@@ -31,14 +31,15 @@ public class SearchCategoryServlet extends HttpServlet{
         
 
         try{
-             ArrayList<Book> book = sql.searchField(category);
+            ArrayList<Book> book = sql.searchTitle(title);
             if (book.isEmpty()){
-                out.println("<a href=" + "searchMenu.jsp" + ">探している分野の書籍がありません。</a>");
+                out.println("<a href=" + "searchMenu.jsp" + ">探しているタイトルの書籍がありません。</a>");
+            }else if(title.isEmpty()){
+                out.println("<a href=" + "searchMenu.jsp" + ">タイトルを正しく入力してください。</a>");   
             } else {
                     req.setAttribute("book", book);
                     RequestDispatcher rd = req.getRequestDispatcher("searchResults.jsp");
                     rd.forward(req, res);
-                
             }
         }
         catch(Exception e){
