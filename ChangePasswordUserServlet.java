@@ -29,7 +29,7 @@ public class ChangePasswordUserServlet extends HttpServlet{
         	res.sendRedirect("resultChangePassUser.jsp");
     	}
         catch(Exception e){
-        	res.sendRedirect("wrongPass.jsp");
+        	res.sendRedirect("passResetUserUI.jsp");
         }
     }
 }
