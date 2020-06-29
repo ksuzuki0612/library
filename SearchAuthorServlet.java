@@ -29,7 +29,6 @@ public class SearchAuthorServlet extends HttpServlet{
         
         String author = req.getParameter("searchauthor");
         
-
         try{
             ArrayList<Book> book = sql.searchTitle(author);
             if (book.isEmpty()){

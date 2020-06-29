@@ -34,8 +34,10 @@ public class SearchCategoryServlet extends HttpServlet{
             ArrayList<Book> book = sql.searchTitle(category);
             if (book.isEmpty()){
                 res.sendRedirect("noBook.jsp");
+                
             }else if(category.isEmpty()){
                 res.sendRedirect("errorSearch.jsp");
+                
             } else {
                     req.setAttribute("book", book);
                     RequestDispatcher rd = req.getRequestDispatcher("searchResults.jsp");

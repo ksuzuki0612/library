@@ -25,11 +25,9 @@ public class SearchTitleServlet extends HttpServlet{
         out.println("</head><body>");
      	
         SqlMethod sql = new SqlMethod();
-
         
         String title = req.getParameter("searchtitle");
         
-
         try{
             ArrayList<Book> book = sql.searchTitle(title);
             if (book.isEmpty()){
