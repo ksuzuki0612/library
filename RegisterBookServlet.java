@@ -23,28 +23,25 @@ public class RegisterBookServlet extends HttpServlet{
      	
         SqlMethod sql = new SqlMethod();
 
-        
-        String ISBN = req.getParameter("regISBN");
-        String title = req.getParameter("regTitle");
-        String publisher = req.getParameter("regPublisher");
-        String publishDate = req.getParameter("regPubdate");
-        String field = req.getParameter("regCategory");
-        String authors = req.getParameter("regAuthor");
-        String inv = req.getParameter("regInv");
-        int inventory = Integer.parseInt(inv);
-        int borrowedAmount = 0;
-
         try{
+            String ISBN = req.getParameter("regISBN");
+            String title = req.getParameter("regTitle");
+            String publisher = req.getParameter("regPublisher");
+            String publishDate = req.getParameter("regPubdate");
+            String field = req.getParameter("regCategory");
+            String authors = req.getParameter("regAuthor");
+            String inv = req.getParameter("regInv");
+            int borrowedAmount = 0;
+            int inventory = Integer.parseInt(inv);
             boolean register = sql.registerBook(ISBN, title, publisher, publishDate, field, authors, inventory, borrowedAmount);
             if (register == true){
-                out.println("<a href=" + "adminMenuUI.jsp" + ">書籍が登録されました。</a>");
+                res.sendRedirect("successRegister.jsp");
             } else {
-                out.println("<a href=" + "adminMenuUI.jsp" + ">書籍が登録出来ませんでした。</a>");
+                res.sendRedirect("failRegister.jsp");
             }
         }
         catch(Exception e){
-            out.println("<a href=" + "adminMenuUI.jsp" + ">データベースに繋ぐことが出来ません。</a>");
-            out.println(e);
+            res.sendRedirect("errorRegister.jsp");
         }
        out.println("</body></html>");
     }

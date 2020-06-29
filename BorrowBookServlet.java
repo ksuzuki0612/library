@@ -23,21 +23,15 @@ public class BorrowBookServlet extends HttpServlet{
      	
         SqlMethod sql = new SqlMethod();
 
-        
-        String ISBN = req.getParameter("lendISBN");
-        String id = req.getParameter("borrowempID");
-        int empID = Integer.parseInt(id);
-        String borrowFrom = req.getParameter("borrowStart");
-        String borrowTill = req.getParameter("borrowEnd");
-        
-
         try{
-        	boolean lendCheck = sql.borrowBookCheck(ISBN);
-        	
+            String ISBN = req.getParameter("lendISBN");
+            String id = req.getParameter("borrowempID");
+            int empID = Integer.parseInt(id);
+            String borrowFrom = req.getParameter("borrowStart");
+            String borrowTill = req.getParameter("borrowEnd");
+            boolean lendCheck = sql.borrowBookCheck(ISBN);
         	if(lendCheck == true){
-        		
         		boolean register = sql.borrowBook(ISBN, empID, borrowFrom, borrowTill);
-        		
             	if (register == true){
             		res.sendRedirect("borrowApproval.jsp");
             	} 
