@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <head>
-    <title>分野検索</title>
+    <title>分野検索入力</title>
     <link rel="stylesheet" href="updateD.css">
 </head>
 <body>
