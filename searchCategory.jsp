@@ -12,7 +12,7 @@
     <form action="SearchCategoryServlet" method="POST">
     	
 		<h3 class="textConfiguration">分野名</h3>
-        <input class="flameUI" name="searcategory" type="text">
+        <input class="flameUI" name="searchategory" type="text">
         	
         <p><input class="btn-square-shadow" type="submit" value = "検索">
         <input class="btn-square-shadow" type="reset" value="リセット"></p>
