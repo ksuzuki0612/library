@@ -29,6 +29,7 @@ public class UpdateLendServlet extends HttpServlet {
                 int s = sql.dbAddBorrowedAmount( aISBN,addBorrowedAmount);
                 if(s==0){
                     out.println("<h1  class="+"flame16"+">更新したい本がありません。</h1>");
+                }
                 if(s==1){
                     out.println("<h1  class="+"flame16"+">貸出数は更新されました。</h1>");
                 }
@@ -42,6 +43,7 @@ public class UpdateLendServlet extends HttpServlet {
             out.println("<h3><a href="+" adminMenuUI.jsp"+" class="+"btnChoice"+">管理者メニューに戻る</a></h3>");
             out.println("<h3><a class="+"btnChoice"+" href="+"updateBook.jsp"+" >登録変更メニューに戻る</a></h3>");
             out.println("</body></html>");
+        
     }
     private boolean checkNull(String name) {
         if(name.isEmpty()){
@@ -49,5 +51,6 @@ public class UpdateLendServlet extends HttpServlet {
         }
         return true;
     }
+
 }
 
