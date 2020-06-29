@@ -26,15 +26,20 @@ public class UpdateLendServlet extends HttpServlet {
             boolean aISBNCheck =  checkNull(aISBN);
             if(strCheck && aISBNCheck){
                 int addBorrowedAmount = Integer.parseInt(str);
-                int s = sql.dbAddBorrowedAmount( aISBN,addBorrowedAmount);
-                if(s==0){
-                    out.println("<h1  class="+"flame16"+">更新したい本がありません。</h1>");
+                if (addBorrowedAmount >= 0){ 
+                    int s = sql.dbAddBorrowedAmount( aISBN,addBorrowedAmount);
+                    if(s == 0){
+                        out.println("<h1  class="+"flame16"+">更新したい本がありません。</h1>");
+                    }
+                    if(s == 1){
+                        out.println("<h1  class="+"flame16"+">貸出数は更新されました。</h1>");
+                    }
+                    if(s == 3){
+                        out.println("<h1  class="+"flame16"+">エラーが発生しました</h1>");
+                    }
                 }
-                if(s==1){
-                    out.println("<h1  class="+"flame16"+">貸出数は更新されました。</h1>");
-                }
-                if(s==3){
-                    out.println("<h1  class="+"flame16"+">エラーが発生しました</h1>");
+                else{
+                    out.println("<h1  class="+"flame16"+">初めからやり直してください。</h1>");
                 }
             }
             else{
