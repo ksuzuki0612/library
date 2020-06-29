@@ -1,3 +1,4 @@
+import library.Book;
 import java.io.IOException;
 import java.util.function.Supplier;
 import java.util.logging.FileHandler;
@@ -20,9 +21,9 @@ import java.text.*;
 public class SqlMethod{
 
     Logger logger = Logger.getLogger(SqlMethod.class.getName());
-    final String url = "jdbc:mysql://localhost/librarySystem"; 
-    final String userName = "tester";
-    final String pwd = "77Coffee/";
+    final String url = "jdbc:mysql://localhost/library_test"; 
+    final String userName = "root";
+    final String pwd = "keyblade24";
 
     public void InitializeDriver() {
         try {
@@ -281,11 +282,11 @@ public class SqlMethod{
      * 書籍を著者ごと検索するメソッド
      *
      */
-    public List<Book> searchAuthor(String author){
+    public ArrayList<Book> searchAuthor(String author){
 
     	logger.entering(LogUtil.getClassName(), LogUtil.getMethodName());
 
-        List<Book> books = new ArrayList<Book>();
+        ArrayList<Book> books = new ArrayList<Book>();
       
         try{
 
@@ -366,11 +367,11 @@ public class SqlMethod{
      * 書籍を分野ごと検索メソッド
      *
      */
-    public List<Book> searchField(String category){
+    public ArrayList<Book> searchField(String category){
 
     	logger.entering(LogUtil.getClassName(), LogUtil.getMethodName());
 
-        List<Book> books = new ArrayList<Book>();
+        ArrayList<Book> books = new ArrayList<Book>();
       
         try{
 
@@ -452,11 +453,11 @@ public class SqlMethod{
      * 書籍をタイトルごと検索メソッド
      *
      */
-    public List<Book> searchTitle(String title){
+    public ArrayList<Book> searchTitle(String title){
 
     	logger.entering(LogUtil.getClassName(), LogUtil.getMethodName());
 
-        List<Book> books = new ArrayList<Book>();
+        ArrayList<Book> books = new ArrayList<Book>();
       
         try{
 

@@ -1,3 +1,4 @@
+import library.Book;
 import java.util.*;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,7 +21,7 @@ public class SearchAuthorServlet extends HttpServlet{
      	PrintWriter out = res.getWriter();
      	
      	out.println("<!DOCTYPE html><html><head><meta charset='UTF-8' />");
-        out.println("<title>書籍タイトル検索</title>");
+        out.println("<title>書籍著者検索</title>");
         out.println("</head><body>");
      	
         SqlMethod sql = new SqlMethod();
@@ -30,23 +31,19 @@ public class SearchAuthorServlet extends HttpServlet{
         
 
         try{
-            List<Book> book = sql.searchAuthor(author);
+            ArrayList<Book> book = sql.searchAuthor(author);
             if (book.isEmpty()){
                 out.println("<a href=" + "searchMenu.jsp" + ">探している著者の書籍がありません。</a>");
-            }else if(author.isEmpty()){
-                out.println("<a href=" + "searchMenu.jsp" + ">著者名を正しく入力してください。</a>");   
             } else {
-                for(Book t : book){
-                    out.println(String.format("%-15s %-15s %-15s %-15s %-15s %-15s %-15s %-15s",
-                        "ISBN","Title","Publisher","Publishdate","Author","category","Inventory","Lent out"));
-                    out.println(  String.format("%-15s %-15s %-15s %-15s %-15s %-15s %-15s %-15s",
-                        t.getISBN() ,t.getTitle() , t.getPublisher() , new SimpleDateFormat("yyyy/MM/dd").format(t.getPublishDate()),
-                        t.getStringAuthors() , t.getField() , t.getInventory(), t.getBorrowedAmount() ));
-                }
+                req.setAttribute("book", book);
+                RequestDispatcher rd = req.getRequestDispatcher("searchResults.jsp");
+                rd.forward(req, res);
             }
         }
         catch(Exception e){
             out.println("<a href=" + "adminMenuUI.jsp" + ">データベースに繋ぐことが出来ません。</a>");
+e.printStackTrace();
+out.println(e);
         }
        out.println("</body></html>");
     }

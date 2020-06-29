@@ -1,3 +1,4 @@
+import library.Book;
 import java.util.*;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,21 +33,17 @@ public class SearchTitleServlet extends HttpServlet{
         try{
             List<Book> book = sql.searchTitle(title);
             if (book.isEmpty()){
-                res.sendRedirect("noBook.jsp");
+                out.println("<a href=" + "searchMenu.jsp" + ">探しているタイトルの書籍がありません。</a>");
             }else if(title.isEmpty()){
-                res.sendRedirect("errorSearch.jsp");
+                out.println("<a href=" + "searchMenu.jsp" + ">タイトルを正しく入力してください。</a>");   
             } else {
-                for(Book t : book){
-                    out.println(String.format("%-15s %-15s %-15s %-15s %-15s %-15s %-15s %-15s",
-                        "ISBN","Title","Publisher","Publishdate","Author","category","Inventory","Lent out"));
-                    out.println(  String.format("%-15s %-15s %-15s %-15s %-15s %-15s %-15s %-15s",
-                        t.getISBN() ,t.getTitle() , t.getPublisher() , new SimpleDateFormat("yyyy/MM/dd").format(t.getPublishDate()),
-                        t.getStringAuthors() , t.getField() , t.getInventory(), t.getBorrowedAmount() ));
-                }
+                    req.setAttribute("book", book);
+                    RequestDispatcher rd = req.getRequestDispatcher("searchResults.jsp");
+                    rd.forward(req, res);
             }
         }
         catch(Exception e){
-            res.sendRedirect("errorSearch.jsp");
+            out.println("<a href=" + "adminMenuUI.jsp" + ">データベースに繋ぐことが出来ません。</a>");
         }
        out.println("</body></html>");
     }

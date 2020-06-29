@@ -1,3 +1,4 @@
+import library.Book;
 import java.util.*;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,7 +21,7 @@ public class SearchCategoryServlet extends HttpServlet{
      	PrintWriter out = res.getWriter();
      	
      	out.println("<!DOCTYPE html><html><head><meta charset='UTF-8' />");
-        out.println("<title>書籍タイトル検索</title>");
+        out.println("<title>書籍分野検索</title>");
         out.println("</head><body>");
      	
         SqlMethod sql = new SqlMethod();
@@ -32,43 +33,18 @@ public class SearchCategoryServlet extends HttpServlet{
         try{
              List<Book> book = sql.searchField(category);
             if (book.isEmpty()){
-                res.sendRedirect("noBook.jsp");
+                out.println("<a href=" + "searchMenu.jsp" + ">探している分野の書籍がありません。</a>");
             } else {
-                for(Book t : book){
-                    String ISBN = t.getISBN();
-                    out.println(ISBN);
-                    req.setAttribute("ISBN", ISBN);
-                    String title = t.getTitle();
-                    out.println(title);
-                    req.setAttribute("title", title);
-                    String publisher = t.getPublisher();
-                    out.println(publisher);
-                    req.setAttribute("publisher", publisher);
-                    Date pubdate = t.getPublishDate();
-                    out.println(pubdate);
-                    req.setAttribute("pubdate", pubdate);
-                    String author = t.getStringAuthors();
-                    out.println(author);
-                    req.setAttribute("author", author);
-                    String field = t.getField();
-                    out.println(field);
-                    req.setAttribute("field", field);
-                    int inventory = t.getInventory();
-                    out.println(inventory);
-                    req.setAttribute("inventory", inventory);
-                    int borrowed = t.getBorrowedAmount();
-                    out.println(borrowed);
-                    req.setAttribute("borrowed", borrowed);
+                    req.setAttribute("book", book);
                     RequestDispatcher rd = req.getRequestDispatcher("searchResults.jsp");
                     rd.forward(req, res);
-
-                    
-                }
                 
             }
         }
         catch(Exception e){
-            res.sendRedirect("errorSearch.jsp");
+            out.println("<a href=" + "adminMenuUI.jsp" + ">データベースに繋ぐことが出来ません。</a>");
+            e.printStackTrace();
+            out.println(e);
         }
        out.println("</body></html>");
     }
