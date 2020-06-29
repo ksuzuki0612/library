@@ -34,6 +34,7 @@ public class LoginServlet extends HttpServlet{
 
             if (ID == 0) {
                 res.sendRedirect("wrongPass.jsp");
+                return;
             }
 
             boolean adminRight = login.checkRight(ID);
