@@ -31,7 +31,7 @@ public class SearchCategoryServlet extends HttpServlet{
         
 
         try{
-            ArrayList<Book> book = sql.searchTitle(category);
+            ArrayList<Book> book = sql.searchField(category);
             if (book.isEmpty()){
                 res.sendRedirect("noBook.jsp");
                 
