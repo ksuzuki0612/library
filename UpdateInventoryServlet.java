@@ -44,7 +44,7 @@ public class UpdateInventoryServlet extends HttpServlet {//[2]
                 }
             }
             else{
-                out.println("<h1  class="+"flame16"+">初めからやり直してください。</h1>");
+                out.println("<h1  class="+"errorFlame"+">初めからやり直してください。</h1>");
             }
             out.println("<h3><a href="+" adminMenuUI.jsp"+" class="+"btnChoice"+">管理者メニューに戻る</a></h3>");
             out.println("<h3><a class="+"btnChoice"+" href="+"updateBook.jsp"+" >登録変更メニューに戻る</a></h3>");
