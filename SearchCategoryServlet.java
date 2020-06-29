@@ -31,7 +31,7 @@ public class SearchCategoryServlet extends HttpServlet{
         
 
         try{
-            ArrayList<Book> book = sql.searchTitle(title);
+            ArrayList<Book> book = sql.searchTitle(category);
             if (book.isEmpty()){
                 out.println("<a href=" + "searchMenu.jsp" + ">探しているタイトルの書籍がありません。</a>");
             }else if(category.isEmpty()){
