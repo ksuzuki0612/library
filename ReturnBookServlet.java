@@ -27,27 +27,30 @@ public class ReturnBookServlet extends HttpServlet {
             String ID = request.getParameter("employeeUi");
             String ISBN = request.getParameter("isbnUi");
             
-            int empID = Integer.parseInt(ID);
+            try{
+            	int empID = Integer.parseInt(ID);
             
-            boolean employeeUiCheck = sql.idExistCheck(empID);
-            boolean isbnUiCheck = sql.isbnExistCheck(ISBN);
+            	boolean employeeUiCheck = sql.idExistCheck(empID);
+            	boolean isbnUiCheck = sql.isbnExistCheck(ISBN);
             
-            if(employeeUiCheck && isbnUiCheck){
-            	
-                int a = sql.returnBook(ISBN,empID);
+            	if(employeeUiCheck && isbnUiCheck){
+                	int a = sql.returnBook(ISBN,empID);
                 
-                if(a==0){
-            	    response.sendRedirect("successReturn.jsp");
-                }
+                	if(a==0){
+            	    	response.sendRedirect("successReturn.jsp");
+                	}
                 
-                if(a==3){
-            	    response.sendRedirect("failReturn.jsp");
-                }
-                
-            }
-            else{
-                response.sendRedirect("failReturn.jsp");
-            }
+                	if(a==3){
+            	    	response.sendRedirect("failReturn.jsp");
+                	}
+            	}
+            	else{
+                	response.sendRedirect("failReturn.jsp");
+            	}
+        	}
+        	catch(Exception e){
+        		response.sendRedirect("failReturn.jsp");
+        	}
     }
 }
 

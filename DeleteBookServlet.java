@@ -30,13 +30,13 @@ public class DeleteBookServlet extends HttpServlet{
         try{
             boolean register = sql.deleteBook(ISBN);
             if (register == true){
-                out.println("<a href=" + "adminMenuUI.jsp" + ">書籍が削除されました。</a>");
+                res.sendRedirect("successDelete.jsp");
             } else {
-                out.println("<a href=" + "adminMenuUI.jsp" + ">書籍が削除出来ませんでした。</a>");
+                res.sendRedirect("failDelete.jsp");
             }
         }
         catch(Exception e){
-            out.println("<a href=" + "adminMenuUI.jsp" + ">データベースに繋ぐことが出来ません。</a>");
+            res.sendRedirect("failDelete.jsp");
         }
        out.println("</body></html>");
     }
