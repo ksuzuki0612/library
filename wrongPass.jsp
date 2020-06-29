@@ -18,7 +18,7 @@
         <input class="flameUI" name="password" type="text">
         	
         <p><input class="btn-square-shadow" type="submit" value = "ログイン">
-        <input class="btn-square-shadow" type="reset" value="リセットする"></p>
+        <input class="btn-square-shadow" type="reset" value="リセット"></p>
     </form>
 	
 </body>
