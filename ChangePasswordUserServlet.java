@@ -22,10 +22,15 @@ public class ChangePasswordUserServlet extends HttpServlet{
         String newPassword = req.getParameter("password");
         String checkPassword = req.getParameter("checkPassword");
         
-        boolean result = pass.checkResetPass(empID, newPassword, checkPassword);
+        try{
+        	boolean result = pass.checkResetPass(empID, newPassword, checkPassword);
     
-        HttpSession session = req.getSession();
-        session.setAttribute("result", result);
-        res.sendRedirect("resultChangePassUser.jsp");
+        	HttpSession session = req.getSession();
+        	session.setAttribute("result", result);
+        	res.sendRedirect("resultChangePassUser.jsp");
+    	}
+        catch(Exception e){
+        	res.sendRedirect("wrongPass.jsp");
+        }
     }
 }
