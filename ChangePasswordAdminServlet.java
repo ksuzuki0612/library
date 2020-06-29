@@ -16,13 +16,13 @@ public class ChangePasswordAdminServlet extends HttpServlet{
         PrintWriter out = res.getWriter();
 
         ResetPassword pass = new ResetPassword();
-
-        String strID = req.getParameter("empID");
-        int empID = Integer.parseInt(strID);
-        String newPassword = req.getParameter("password");
-        String checkPassword = req.getParameter("checkPassword");
         
-        try{
+		try{
+        	String strID = req.getParameter("empID");
+        	int empID = Integer.parseInt(strID);
+        	String newPassword = req.getParameter("password");
+        	String checkPassword = req.getParameter("checkPassword");
+        
         	boolean result = pass.checkResetPass(empID, newPassword, checkPassword);
         	HttpSession session = req.getSession();
         	session.setAttribute("result", result);
