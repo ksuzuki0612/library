@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <h1  class="flame16">IDまたはパスワードが間違っています</h1>
+    <h1  class="errorFlame">IDまたはパスワードが間違っています</h1>
     	
     <a class="btn-square" href="shutDownBrowser.jsp" >終了</a>
     	

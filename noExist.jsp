@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <h1  class="flame16">ISBNまたは従業員IDが間違っています</h1>
+    <h1  class="errorFlame">ISBNまたは従業員IDが間違っています</h1>
     <h3><a href= adminMenuUI.jsp class="btnChoice">管理者メニューに戻る</a></h3>
     <h3><a href= borrowBook.jsp class="btnChoice">貸出承認画面に戻る</a></h3>
 

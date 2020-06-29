@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <h1  class="flame16">お探しの本はございません</h1>
+    <h1  class="errorFlame">お探しの本はございません</h1>
     <h3><a href= searchMenuAdmin.jsp class="btnChoice">検索メニューに戻る</a></h3>
 
 </body>

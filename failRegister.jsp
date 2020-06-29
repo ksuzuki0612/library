@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <h1  class="flame16">書籍が登録出来ませんでした。</h1>
+    <h1  class="errorFlame">書籍が登録出来ませんでした。</h1>
     <h3><a href= adminMenuUI.jsp class="btnChoice">管理者メニューに戻る</a></h3>
 
 </body>
