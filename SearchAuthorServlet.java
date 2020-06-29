@@ -33,6 +33,8 @@ public class SearchAuthorServlet extends HttpServlet{
             List<Book> book = sql.searchAuthor(author);
             if (book.isEmpty()){
                 out.println("<a href=" + "searchMenu.jsp" + ">探している著者の書籍がありません。</a>");
+            }else if(author.isEmpty()){
+                out.println("<a href=" + "searchMenu.jsp" + ">著者名を正しく入力してください。</a>");   
             } else {
                 for(Book t : book){
                     out.println(String.format("%-15s %-15s %-15s %-15s %-15s %-15s %-15s %-15s",

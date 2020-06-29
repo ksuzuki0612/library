@@ -33,6 +33,8 @@ public class SearchTitleServlet extends HttpServlet{
             List<Book> book = sql.searchTitle(title);
             if (book.isEmpty()){
                 out.println("<a href=" + "searchMenu.jsp" + ">探しているタイトルの書籍がありません。</a>");
+            }else if(title.isEmpty()){
+                out.println("<a href=" + "searchMenu.jsp" + ">タイトルを正しく入力してください。</a>");   
             } else {
                 for(Book t : book){
                     out.println(String.format("%-15s %-15s %-15s %-15s %-15s %-15s %-15s %-15s",
