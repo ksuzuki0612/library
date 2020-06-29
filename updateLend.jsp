@@ -12,8 +12,8 @@
       <input class="flameUI" type="number"  name="ISBN">
       <h3 class="textConfiguration">貸出数を入力してください</h3>
       <input class="flameUI" type="number" name="addBorrowedAmount">
-      <p> <input type="submit" class="btn-square-shadow">
-        <input class="btn-square-shadow" type="reset" value="リセットする"></p>
+      <p> <input type="submit" class="btn-square-shadow" value="送信">
+        <input class="btn-square-shadow" type="reset" value="リセット"></p>
     </form>	
   </body>
 </html>

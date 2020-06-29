@@ -20,8 +20,6 @@ public class UpdateLendServlet extends HttpServlet {
             out.println("<title>ログイン</title>");
             out.println("<link rel="+"stylesheet"+" href="+"updateD.css"+">");
             out.println("</head><body>");
-            out.println("<h1  class="+"flame16"+">貸出数の更新</h1>");
-            out.println("<a class="+"btn-square"+" href="+"updateBook.jsp"+" >登録変更メニューに戻る</a>");
             String aISBN = request.getParameter("ISBN");
             String str = request.getParameter("addBorrowedAmount");
             boolean strCheck = checkNull(str);
@@ -30,19 +28,19 @@ public class UpdateLendServlet extends HttpServlet {
                 int addBorrowedAmount = Integer.parseInt(str);
                 int s = sql.dbAddBorrowedAmount( aISBN,addBorrowedAmount);
                 if(s==0){
-                    out.println("<p>更新したい本がありません。</p>");
-                }
+                    out.println("<h1  class="+"flame16"+">更新したい本がありません。</h1>");
                 if(s==1){
-                    out.println("<p>貸出数は更新されました。</p>");
+                    out.println("<h1  class="+"flame16"+">貸出数は更新されました。</h1>");
                 }
                 if(s==3){
-                    out.println("<p>エラーが発生しました</p>");
+                    out.println("<h1  class="+"flame16"+">エラーが発生しました</h1>");
                 }
             }
             else{
-                out.println("<p>初めからやり直してください。</p>");
+                out.println("<h1  class="+"flame16"+">初めからやり直してください。</h1>");
             }
-
+            out.println("<h3><a href="+" adminMenuUI.jsp"+" class="+"btnChoice"+">管理者メニューに戻る</a></h3>");
+            out.println("<h3><a class="+"btnChoice"+" href="+"updateBook.jsp"+" >登録変更メニューに戻る</a></h3>");
             out.println("</body></html>");
     }
     private boolean checkNull(String name) {

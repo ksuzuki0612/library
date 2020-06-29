@@ -21,8 +21,6 @@ public class UpdateInventoryServlet extends HttpServlet {//[2]
             out.println(" <link rel= "+"stylesheet"+" href="+"updateD.css"+">");
             out.println("<title>在庫変更</title>");
             out.println("</head><body>");
-            out.println("<h1  class="+"flame16"+">書籍在庫数の更新</h1>");
-            out.println("<a class="+"btn-square"+" href="+"updateBook.jsp"+" >登録変更メニューに戻る</a>");
             String allowISBN = request.getParameter("ISBN");
             String str = request.getParameter("inventory");
             boolean strCheck=  checkNull(str);
@@ -31,19 +29,21 @@ public class UpdateInventoryServlet extends HttpServlet {//[2]
                 int addInventory = Integer.parseInt(str);
                 int s = sql.dbUpdataInventory( allowISBN,addInventory );
                 if(s==0){
-                    out.println("<p>更新したい本がありません。</p>");
+                    out.println("<h1  class="+"flame16"+">更新したい本がありません。</h1>");
                 }
                 if(s==1){
-                    out.println("<p>在庫数は更新されました。</p>");
+                    out.println("<h1  class="+"flame16"+">在庫数は更新されました</h1>");
     
                 }
                 if(s==3){
-                    out.println("<p>在庫数は更新されました。</p>");
+                    out.println("<h1  class="+"flame16"+">エラーが発生しました</h1>");
                 }       
             }
             else{
-                out.println("<p>初めからやり直してください。</p>");
+                out.println("<h1  class="+"flame16"+">初めからやり直してください。</h1>");
             }
+            out.println("<h3><a href="+" adminMenuUI.jsp"+" class="+"btnChoice"+">管理者メニューに戻る</a></h3>");
+            out.println("<h3><a class="+"btnChoice"+" href="+"updateBook.jsp"+" >登録変更メニューに戻る</a></h3>");
             out.println("</body></html>");
     }
     private boolean checkNull(String name) {
