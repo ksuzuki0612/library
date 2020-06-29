@@ -46,8 +46,7 @@ public class LoginServlet extends HttpServlet{
             }
         }
         catch(Exception e){
-            out.println("<a href=" + "wrongPass.jsp" + ">パスワード/IDを再入力してください</a>");
-            out.println(e);
+            res.sendRedirect("wrongPass.jsp");
         }
        out.println("</body></html>");
     }
