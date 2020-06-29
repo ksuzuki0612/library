@@ -34,6 +34,8 @@ public class SearchAuthorServlet extends HttpServlet{
             ArrayList<Book> book = sql.searchAuthor(author);
             if (book.isEmpty()){
                 out.println("<a href=" + "searchMenu.jsp" + ">探している著者の書籍がありません。</a>");
+            }else if(author.isEmpty()){
+                out.println("<a href=" + "searchMenu.jsp" + ">著者名を正しく入力してください。</a>");
             } else {
                 req.setAttribute("book", book);
                 RequestDispatcher rd = req.getRequestDispatcher("searchResults.jsp");
