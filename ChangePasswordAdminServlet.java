@@ -24,7 +24,6 @@ public class ChangePasswordAdminServlet extends HttpServlet{
         
         try{
         	boolean result = pass.checkResetPass(empID, newPassword, checkPassword);
-    
         	HttpSession session = req.getSession();
         	session.setAttribute("result", result);
         	res.sendRedirect("resultChangePassAdmin.jsp");
