@@ -30,7 +30,7 @@ public class SearchAuthorServlet extends HttpServlet{
         String author = req.getParameter("searchauthor");
         
         try{
-            ArrayList<Book> book = sql.searchTitle(author);
+            ArrayList<Book> book = sql.searchAuthor(author);
             if (book.isEmpty()){
                 res.sendRedirect("noBook.jsp");
             }else if(author.isEmpty()){
