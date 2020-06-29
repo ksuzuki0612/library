@@ -1,0 +1,75 @@
+.btn-square-shadow {
+  display: inline-block;
+  padding: 10px 20px;
+  margin : 20px 10px 0px 110px;
+  text-decoration: none;
+  background: #0F65E7;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+
+.flame16{
+margin: 5px;
+padding: 1em;
+background-color: #0F65E7;
+color: #ffffff;
+box-shadow: 0 0 5px 1px #b2b2b2;
+border-radius: 10px;
+}
+.btn-square-shadow:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+  border-bottom: none;
+}
+.FlameUI{
+border:0;
+padding:10px;
+font-size:1.3em;
+font-family:Arial, sans-serif;
+color:#aaa;
+border:solid 1px #ccc;
+margin:0 0 20px 20px; 
+width:300px;
+}
+.textConfiguration{
+  padding:5px 20px;
+}
+.btn-square {
+  display: inline-block;
+  padding: 10px 20px;
+  margin : 0px 0px 0px 80%;
+  text-decoration: none;
+  background: #0F65E7;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+
+.btn-square:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+  border-bottom: none;
+}
+.btnChoice {
+  display: inline-block;
+  padding: 10px 20px;
+  margin : 20px  ;
+  text-decoration: none;
+  background: #0F65E7;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+
+.btnChoice:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+  border-bottom: none;
+}
