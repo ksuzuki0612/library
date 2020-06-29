@@ -29,6 +29,6 @@
             <%}%>
         </table>
     </hr>
-        <a href="searchMenu.jsp">検索メニューに戻る</a>
+        <a href="searchMenuAdmin.jsp">検索メニューに戻る</a>
     </body>
 </html>
