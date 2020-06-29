@@ -32,7 +32,7 @@ public class SearchCategoryServlet extends HttpServlet{
         try{
              List<Book> book = sql.searchField(category);
             if (book.isEmpty()){
-                out.println("<a href=" + "searchMenu.jsp" + ">探している分野の書籍がありません。</a>");
+                res.sendRedirect("noBook.jsp");
             } else {
                 for(Book t : book){
                     String ISBN = t.getISBN();
@@ -68,9 +68,7 @@ public class SearchCategoryServlet extends HttpServlet{
             }
         }
         catch(Exception e){
-            out.println("<a href=" + "adminMenuUI.jsp" + ">データベースに繋ぐことが出来ません。</a>");
-            e.printStackTrace();
-            out.println(e);
+            res.sendRedirect("errorSearch.jsp");
         }
        out.println("</body></html>");
     }

@@ -32,9 +32,9 @@ public class SearchTitleServlet extends HttpServlet{
         try{
             List<Book> book = sql.searchTitle(title);
             if (book.isEmpty()){
-                out.println("<a href=" + "searchMenu.jsp" + ">探しているタイトルの書籍がありません。</a>");
+                res.sendRedirect("noBook.jsp");
             }else if(title.isEmpty()){
-                out.println("<a href=" + "searchMenu.jsp" + ">タイトルを正しく入力してください。</a>");   
+                res.sendRedirect("errorSearch.jsp");
             } else {
                 for(Book t : book){
                     out.println(String.format("%-15s %-15s %-15s %-15s %-15s %-15s %-15s %-15s",
@@ -46,7 +46,7 @@ public class SearchTitleServlet extends HttpServlet{
             }
         }
         catch(Exception e){
-            out.println("<a href=" + "adminMenuUI.jsp" + ">データベースに繋ぐことが出来ません。</a>");
+            res.sendRedirect("errorSearch.jsp");
         }
        out.println("</body></html>");
     }
