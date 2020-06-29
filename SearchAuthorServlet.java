@@ -33,19 +33,18 @@ public class SearchAuthorServlet extends HttpServlet{
         try{
             ArrayList<Book> book = sql.searchTitle(author);
             if (book.isEmpty()){
-                out.println("<a href=" + "searchMenu.jsp" + ">探しているタイトルの書籍がありません。</a>");
+                res.sendRedirect("noBook.jsp");
             }else if(author.isEmpty()){
-                out.println("<a href=" + "searchMenu.jsp" + ">タイトルを正しく入力してください。</a>");   
-            } else {
-                    req.setAttribute("book", book);
-                    RequestDispatcher rd = req.getRequestDispatcher("searchResults.jsp");
-                    rd.forward(req, res);
+                res.sendRedirect("errorSearch.jsp");
+            } 
+            else {
+                req.setAttribute("book", book);
+                RequestDispatcher rd = req.getRequestDispatcher("searchResults.jsp");
+                rd.forward(req, res);
             }
         }
         catch(Exception e){
-            out.println("<a href=" + "adminMenuUI.jsp" + ">データベースに繋ぐことが出来ません。</a>");
-e.printStackTrace();
-out.println(e);
+            res.sendRedirect("errorSearch.jsp");
         }
        out.println("</body></html>");
     }

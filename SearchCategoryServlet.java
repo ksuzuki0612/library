@@ -33,9 +33,9 @@ public class SearchCategoryServlet extends HttpServlet{
         try{
             ArrayList<Book> book = sql.searchTitle(category);
             if (book.isEmpty()){
-                out.println("<a href=" + "searchMenu.jsp" + ">探しているタイトルの書籍がありません。</a>");
+                res.sendRedirect("noBook.jsp");
             }else if(category.isEmpty()){
-                out.println("<a href=" + "searchMenu.jsp" + ">タイトルを正しく入力してください。</a>");   
+                res.sendRedirect("errorSearch.jsp");
             } else {
                     req.setAttribute("book", book);
                     RequestDispatcher rd = req.getRequestDispatcher("searchResults.jsp");
@@ -43,9 +43,7 @@ public class SearchCategoryServlet extends HttpServlet{
             }
         }
         catch(Exception e){
-            out.println("<a href=" + "adminMenuUI.jsp" + ">データベースに繋ぐことが出来ません。</a>");
-            e.printStackTrace();
-            out.println(e);
+            res.sendRedirect("errorSearch.jsp");
         }
        out.println("</body></html>");
     }
