@@ -34,7 +34,7 @@ public class SearchCategoryServlet extends HttpServlet{
             ArrayList<Book> book = sql.searchTitle(title);
             if (book.isEmpty()){
                 out.println("<a href=" + "searchMenu.jsp" + ">探しているタイトルの書籍がありません。</a>");
-            }else if(title.isEmpty()){
+            }else if(category.isEmpty()){
                 out.println("<a href=" + "searchMenu.jsp" + ">タイトルを正しく入力してください。</a>");   
             } else {
                     req.setAttribute("book", book);
